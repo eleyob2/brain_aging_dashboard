@@ -1,0 +1,58 @@
+signal_id,confidence_tier,region_or_tract,outcome_type,factor_category,factor_name,interaction_order,direction,p_value,notes
+1,1_verified_exact,Left cerebellum exterior,volume,APOE,age×sex×APOE-ε4,3,positive,0.00019,Slower volume decline in male ε4 carriers vs female
+2,1_verified_exact,Amygdala (females),volume,APOE,age×APOE-ε4,2,negative,,Female-specific; exact P not stated
+3,1_verified_exact,Left amygdala,volume,APOE,age×APOE-ε2,2,positive,4.84e-06,
+4,1_verified_exact,Right amygdala (females),volume,APOE,age×APOE-ε2,2,positive,,Female-specific
+5,1_verified_exact,Superior fronto-occipital fasciculus (SFO),AxD,APOE,APOE-ε4×moderate alcohol,2,positive,0.000222,Only significant APOE×environment interaction
+6,1_verified_exact,Inferior lateral ventricle,volume,PRS,AD PRS,1,positive,0.00011,
+7,1_verified_exact,Entorhinal cortex,volume,PRS,AD PRS,1,negative,4.8e-05,
+8,1_verified_exact,Whole brain / overall GM,GM volume,lifestyle,smoking (current),1,negative,2.6e-22,
+9,1_verified_exact,Whole brain (average WM tracts),average FA,lifestyle,smoking (current),1,negative,4.5e-09,
+10,1_verified_exact,Whole brain (average WM tracts),average RD,lifestyle,smoking (current),1,positive,7.5e-11,
+11,1_verified_exact,Whole brain (average WM tracts),average MD,lifestyle,smoking (current),1,positive,2e-08,
+12,1_verified_exact,Splenium of corpus callosum,MD,lifestyle,age×excessive alcohol,2,positive,0.0002,
+13,1_verified_exact,Whole brain volume (WBV),volume,lifestyle,excessive alcohol,1,negative,9.3e-15,
+14,1_verified_exact,Whole brain (average WM tracts),average AxD,lifestyle,excessive alcohol,1,positive,7.8e-07,
+15,1_verified_exact,Left paracentral,volume,lifestyle,age×healthy diet,2,positive,0.0002,
+16,1_verified_exact,Whole brain volume (WBV),volume,lifestyle,healthy diet,1,positive,9.3e-15,
+17,2_named_no_exact_p,Thalamus,volume + DTI,lifestyle,smoking (current),,negative structure / adverse DTI,,10/10 volume & 53/57 DTI signals direction-consistent GB vs non-British
+18,2_named_no_exact_p,Amygdala,volume + DTI,lifestyle,smoking (current),,negative structure / adverse DTI,,10/10 volume & 53/57 DTI signals direction-consistent GB vs non-British
+19,2_named_no_exact_p,Putamen,volume + DTI,lifestyle,smoking (current),,negative structure / adverse DTI,,10/10 volume & 53/57 DTI signals direction-consistent GB vs non-British
+20,2_named_no_exact_p,Ventral diencephalon,volume + DTI,lifestyle,smoking (current),,negative structure / adverse DTI,,10/10 volume & 53/57 DTI signals direction-consistent GB vs non-British
+21,2_named_no_exact_p,Third ventricle,volume + DTI,lifestyle,smoking (current),,negative structure / adverse DTI,,10/10 volume & 53/57 DTI signals direction-consistent GB vs non-British
+22,2_named_no_exact_p,Lateral ventricle,volume + DTI,lifestyle,smoking (current),,negative structure / adverse DTI,,10/10 volume & 53/57 DTI signals direction-consistent GB vs non-British
+23,2_named_no_exact_p,Inferior lateral ventricle,volume + DTI,lifestyle,smoking (current),,negative structure / adverse DTI,,10/10 volume & 53/57 DTI signals direction-consistent GB vs non-British
+24,2_named_no_exact_p,16 WM tracts (unnamed individually),volume + DTI,lifestyle,smoking (current),,negative structure / adverse DTI,,10/10 volume & 53/57 DTI signals direction-consistent GB vs non-British
+25,2_named_no_exact_p,Inferior temporal,"volume (age-interaction, P<0.01)",lifestyle,excessive alcohol,,negative,,Also FX (fornix) FA negative age-interaction; corpus callosum & corona radiata AxD/RD/MD positive age-interaction; 6/6 validated in non-British
+26,2_named_no_exact_p,Precentral,"volume (age-interaction, P<0.01)",lifestyle,excessive alcohol,,negative,,Also FX (fornix) FA negative age-interaction; corpus callosum & corona radiata AxD/RD/MD positive age-interaction; 6/6 validated in non-British
+27,2_named_no_exact_p,Caudate,"volume (age-interaction, P<0.01)",lifestyle,excessive alcohol,,negative,,Also FX (fornix) FA negative age-interaction; corpus callosum & corona radiata AxD/RD/MD positive age-interaction; 6/6 validated in non-British
+28,2_named_no_exact_p,Cuneus,volume (stronger in younger adults),lifestyle,healthy diet,,age-dependent,,Age×diet interaction
+29,2_named_no_exact_p,Pericalcarine,volume (stronger in younger adults),lifestyle,healthy diet,,age-dependent,,Age×diet interaction
+30,2_named_no_exact_p,Paracentral,volume (stronger in older adults),lifestyle,healthy diet,,age-dependent,,Age×diet interaction
+31,2_named_no_exact_p,Pars opercularis,volume (stronger in older adults),lifestyle,healthy diet,,age-dependent,,Age×diet interaction
+32,2_named_no_exact_p,Middle temporal,volume,lifestyle,physical activity,,positive,,No age interaction found
+33,2_named_no_exact_p,Entorhinal,volume,lifestyle,physical activity,,positive,,No age interaction found
+34,2_named_no_exact_p,Amygdala,volume,lifestyle,physical activity,,positive,,No age interaction found
+35,2_named_no_exact_p,Accumbens,volume,lifestyle,physical activity,,positive,,No age interaction found
+36,2_named_no_exact_p,Pallidum,volume,lifestyle,physical activity,,positive,,No age interaction found
+37,2_named_no_exact_p,CSF,volume,lifestyle,physical activity,,negative,,
+38,2_named_no_exact_p,Right superior frontal,volume (age-interaction),lifestyle,healthy sleep (6-8h),,negative,,Not validated in non-British ancestry
+39,2_named_no_exact_p,Pars triangularis,volume (main effect),lifestyle,healthy sleep (6-8h),,positive,,Not validated in non-British ancestry
+40,2_named_no_exact_p,Postcentral,volume (main effect),lifestyle,healthy sleep (6-8h),,positive,,Not validated in non-British ancestry
+41,2_named_no_exact_p,Temporal regions,volume + DTI (main effect),SES,education,,mixed (see notes),,"Higher education -> increased cortical/ventricular/subcortical/cerebellar volume, increased FA/AD/MO, decreased MD/RD. 17/22 ROI & 35/44 DTI direction-consistent"
+42,2_named_no_exact_p,Cingulate regions,volume + DTI (main effect),SES,education,,mixed (see notes),,"Higher education -> increased cortical/ventricular/subcortical/cerebellar volume, increased FA/AD/MO, decreased MD/RD. 17/22 ROI & 35/44 DTI direction-consistent"
+43,2_named_no_exact_p,Ventricular regions,volume + DTI (main effect),SES,education,,mixed (see notes),,"Higher education -> increased cortical/ventricular/subcortical/cerebellar volume, increased FA/AD/MO, decreased MD/RD. 17/22 ROI & 35/44 DTI direction-consistent"
+44,2_named_no_exact_p,Brainstem,volume + DTI (main effect),SES,education,,mixed (see notes),,"Higher education -> increased cortical/ventricular/subcortical/cerebellar volume, increased FA/AD/MO, decreased MD/RD. 17/22 ROI & 35/44 DTI direction-consistent"
+45,2_named_no_exact_p,Cerebellum,volume + DTI (main effect),SES,education,,mixed (see notes),,"Higher education -> increased cortical/ventricular/subcortical/cerebellar volume, increased FA/AD/MO, decreased MD/RD. 17/22 ROI & 35/44 DTI direction-consistent"
+46,2_named_no_exact_p,15 WM tracts (unnamed individually),volume + DTI (main effect),SES,education,,mixed (see notes),,"Higher education -> increased cortical/ventricular/subcortical/cerebellar volume, increased FA/AD/MO, decreased MD/RD. 17/22 ROI & 35/44 DTI direction-consistent"
+47,2_named_no_exact_p,Amygdala,volume + DTI,PRS,Education PRS,,positive (volume); FA/AD/RD/MD increased,,Consistent direction with education phenotype -> partially genetically driven
+48,2_named_no_exact_p,Fusiform,volume + DTI,PRS,Education PRS,,positive (volume); FA/AD/RD/MD increased,,Consistent direction with education phenotype -> partially genetically driven
+49,2_named_no_exact_p,Fourth ventricle,volume + DTI,PRS,Education PRS,,positive (volume); FA/AD/RD/MD increased,,Consistent direction with education phenotype -> partially genetically driven
+50,2_named_no_exact_p,Thalamus,volume,APOE,APOE-ε4 (main effect),,negative,,"Well-established finding, replicated"
+51,2_named_no_exact_p,Basal forebrain,volume,APOE,APOE-ε4 (main effect),,negative,,"Well-established finding, replicated"
+52,2_named_no_exact_p,Cingulum hippocampus (CGH),FA,APOE,APOE-ε4 (main effect),,negative,,
+53,2_named_no_exact_p,Posterior thalamic radiation (PTR),FA,APOE,APOE-ε4 (main effect),,negative,,
+54,2_named_no_exact_p,CGH,"RD, MD, AxD",APOE,APOE-ε4 (main effect),,positive,,
+55,2_named_no_exact_p,PTR,"RD, MD, AxD",APOE,APOE-ε4 (main effect),,positive,,
+56,2_named_no_exact_p,Superior corona radiata,"RD, MD, AxD",APOE,APOE-ε4 (main effect),,positive,,
+57,2_named_no_exact_p,Cingulum cingulate (CGC),"RD, MD, AxD",APOE,APOE-ε4 (main effect),,positive,,
