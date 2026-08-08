@@ -16,72 +16,96 @@ export default function Home() {
     [selectedRoi],
   );
 
-  return (
-    <main className="min-h-screen bg-slate-50 text-slate-900">
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <div className="mb-8 flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white/90 p-6 shadow-sm shadow-slate-200/60 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Brain Aging Dashboard</p>
-            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-slate-900">Unified Cognition & Pathway Explorer</h1>
-            <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-600">
-              Explore how genetic risk, lifestyle, and region-specific brain metrics interact in one combined dashboard.
-              Select a metric and pathway to update the visualizations in real time.
-            </p>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <p className="text-xs uppercase tracking-[0.22em] text-slate-500">Metric</p>
-              <select
-                className="mt-3 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none transition hover:border-slate-400 focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
-                value={metric}
-                onChange={(event) => setMetric(event.target.value)}
-              >
-                {metrics.map((option) => (
-                  <option key={option.value} value={option.value}>{option.label}</option>
-                ))}
-              </select>
-            </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <p className="text-xs uppercase tracking-[0.22em] text-slate-500">Pathway filter</p>
-              <select
-                className="mt-3 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none transition hover:border-slate-400 focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
-                value={focusGroup}
-                onChange={(event) => setFocusGroup(event.target.value)}
-              >
-                {pathways.map((option) => (
-                  <option key={option.value} value={option.value}>{option.label}</option>
-                ))}
-              </select>
-            </div>
-          </div>
-        </div>
+  const selectedMetricLabel = metrics.find((item) => item.value === metric)?.label || "Metric";
+  const selectedPathwayLabel = pathways.find((item) => item.value === focusGroup)?.label || "Pathway";
+  const regionLabel = selectedNode?.label || "Select a region";
 
-        <section className="grid gap-6 lg:grid-cols-[1.3fr_0.95fr]">
+  return (
+    <main className="min-h-screen bg-slate-100 text-slate-900">
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <header className="rounded-3xl border border-slate-200 bg-white/95 p-6 shadow-sm shadow-slate-200/70 sm:p-8">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Brain aging dashboard</p>
+              <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-900">Unified cognition and pathway explorer</h1>
+              <p className="mt-3 text-sm leading-6 text-slate-600">
+                Explore how regional brain metrics and pathway-level interactions shift together in one focused view.
+              </p>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              <label className="rounded-2xl border border-slate-200 bg-slate-50 p-3">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">Metric</span>
+                <select
+                  className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none transition hover:border-slate-400 focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
+                  value={metric}
+                  onChange={(event) => setMetric(event.target.value)}
+                >
+                  {metrics.map((option) => (
+                    <option key={option.value} value={option.value}>{option.label}</option>
+                  ))}
+                </select>
+              </label>
+
+              <label className="rounded-2xl border border-slate-200 bg-slate-50 p-3">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">Pathway view</span>
+                <select
+                  className="mt-2 w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-sm outline-none transition hover:border-slate-400 focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
+                  value={focusGroup}
+                  onChange={(event) => setFocusGroup(event.target.value)}
+                >
+                  {pathways.map((option) => (
+                    <option key={option.value} value={option.value}>{option.label}</option>
+                  ))}
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div className="mt-6 grid gap-3 md:grid-cols-3">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Current metric</p>
+              <p className="mt-2 text-base font-semibold text-slate-900">{selectedMetricLabel}</p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Pathway focus</p>
+              <p className="mt-2 text-base font-semibold text-slate-900">{selectedPathwayLabel}</p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Selected region</p>
+              <p className="mt-2 text-base font-semibold text-slate-900">{regionLabel}</p>
+            </div>
+          </div>
+        </header>
+
+        <section className="mt-6 grid gap-6 lg:grid-cols-[1.35fr_0.95fr]">
           <div className="space-y-6">
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/40">
-              <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/50">
+              <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                 <div>
-                  <p className="text-sm font-semibold text-slate-900">Interactive Brain Map</p>
-                  <p className="mt-1 text-sm text-slate-500">Click any region to inspect values and effects.</p>
+                  <p className="text-sm font-semibold text-slate-900">Interactive brain map</p>
+                  <p className="mt-1 text-sm text-slate-500">Click any region to inspect values and effects in context.</p>
                 </div>
-                <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-600">
-                  Showing {metrics.find((item) => item.value === metric)?.label}
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-600">
+                  Showing {selectedMetricLabel}
                 </div>
               </div>
               <div className="mt-6">
                 <BrainMap nodes={nodes} metric={metric} selectedRoi={selectedRoi} onSelectRoi={setSelectedRoi} />
               </div>
-              <ColorScaleLegend />
+              <div className="mt-4">
+                <ColorScaleLegend />
+              </div>
             </div>
 
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/40">
-              <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/50">
+              <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
                 <div>
-                  <p className="text-sm font-semibold text-slate-900">3D Brain Overlay</p>
-                  <p className="mt-1 text-sm text-slate-500">Spatial view mapped to the same metric and selection.</p>
+                  <p className="text-sm font-semibold text-slate-900">3D brain overlay</p>
+                  <p className="mt-1 text-sm text-slate-500">A spatial view of the same selected region and metric.</p>
                 </div>
-                <div className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-2 text-sm text-slate-600">
-                  Selected region: {selectedNode?.label || "None"}
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm text-slate-600">
+                  Region: {regionLabel}
                 </div>
               </div>
               <div className="mt-6">
@@ -91,17 +115,17 @@ export default function Home() {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/40">
-              <p className="text-sm font-semibold text-slate-900">Pathway Network</p>
-              <p className="mt-1 text-sm text-slate-500">Explore how risk factors and brain regions connect to Alzheimer's vulnerability.</p>
+            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/50">
+              <p className="text-sm font-semibold text-slate-900">Pathway network</p>
+              <p className="mt-1 text-sm text-slate-500">Trace how risk factors and brain regions connect across the selected pathway.</p>
               <div className="mt-6">
                 <NetworkGraph edges={edges} focusGroup={focusGroup} />
               </div>
             </div>
 
-            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/40">
+            <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/50">
               <p className="text-sm font-semibold text-slate-900">Region detail</p>
-              <p className="mt-1 text-sm text-slate-500">Detailed metric comparisons for the selected region.</p>
+              <p className="mt-1 text-sm text-slate-500">Review a focused breakdown for the active region selection.</p>
               <div className="mt-6">
                 <RegionDetail node={selectedNode} />
               </div>
